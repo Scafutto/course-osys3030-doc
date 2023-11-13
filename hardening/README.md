@@ -28,7 +28,7 @@ sudo apt install rkhunter -y && sudo rkhunter -c
 
 ## Manageging system access
 First, let's make sure UID 0 is assigned to root. <br />
-The expected output should be something like "root:x:0:0:root:/root"/bin/bash".
+The expected output should be something like "root`:x`:0:0:root:/root"/bin/bash".
 ```bash
 awk -F: '($3=="0"){print}' /etc/passwd
 ```
