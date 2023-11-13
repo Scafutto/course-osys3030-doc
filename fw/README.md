@@ -1,29 +1,34 @@
-# osys3030-doc
-Documentation for OSYS 3030
+# DHCP
+Setting up a DHCP server for a 10.0.0.0/24 internal network. <br />
+[Source](https://ubuntu.com/server/docs/how-to-install-and-configure-isc-dhcp-server)
 
-## The Server
-This server was created for the sole purpose of this class. It only contains the packages described in this documentation, besides the ones that come with the fresh install.
+## Requirements
+A new network adaptor should be used for that. In this case, >>>> INTERFACE <<<<.  was added as an internal adaptor by edditing the VM settings.
 
-**Specifications**
-Operating System: Ubuntu 22.04 (Jammy) server
-Virtualization Platform: VirtualBox
-RAM: 2 GB
-Processor: 1
-Cores: 1
-Storage: 20 GB
+## Install
+To install isc-dhcp-server, simply run the command:
+```bash
+sudo apt install isc-dhcp-server -y
+```
 
+## Config
+To start cofngiuring our DHCP service, let's first edit our config file.
+```bash
+sudo nano /etc/dhcp/dhcpd.conf
+```
+>>>> MISSING THE OTHER FILES <<<<
 
-## Hardening
+Restart the service to apply the new configuration
+```bash
+sudo systemctl restart isc-dhcp-server.service
+```
 
+## Test
+On our Client machine, edit the netplan file. The file should be in /etc/netplan/ <br />
 
-## DNS
+The file should look like this
 
-
-## DHCP
-
-
-## FW
-
-
-## SQUID
-
+```console
+marco@ubuntusv:~$ cat /etc/netplan/ ?????????
+REST OF IT HERE
+```
