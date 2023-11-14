@@ -26,7 +26,7 @@ First, install a rookkit scanner, and then run it:
 sudo apt install rkhunter -y && sudo rkhunter -c
 ```
 
-## Manageging system access
+## Managing system access
 First, let's make sure UID 0 is assigned to root. <br />
 The expected output should be something like `root:x:0:0:root:/root"/bin/bash`.
 ```bash
@@ -35,8 +35,7 @@ awk -F: '($3=="0"){print}' /etc/passwd
 Second, let's check if all users have a password set.
 The expected output should be ">".
 ```bash
-cat /etc/shadow | awk -F: '($2==""){print
-$1}’
+cat /etc/shadow | awk -F: '($2==""){print $1}’
 ```
 We can also check which users are sudoers with visudo. This should open a text file the lists which users and groups may gain root privileges.
 ```bash
