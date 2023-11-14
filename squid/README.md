@@ -1,29 +1,37 @@
 # Squid
-Documentation for OSYS 3030
+We will use Squid to . <br />
+[Source](https://ubuntu.com/server/docs/how-to-install-a-squid-server)
 
-## The Server
-This server was created for the sole purpose of this class. It only contains the packages described in this documentation, besides the ones that come with the fresh install.
+## Install
+Simply install squid:
+```bash
+sudo apt install squid -y
+```
 
-**Specifications**
-Operating System: Ubuntu 22.04 (Jammy) server
-Virtualization Platform: VirtualBox
-RAM: 2 GB
-Processor: 1
-Cores: 1
-Storage: 20 GB
-
-
-## Hardening
-
-
-## DNS
+## Configuration
+First, let's copy the original config file:
+```bash
+sudo cp /etc/squid/squid.conf /etc/squid/squid.conf.original
+```
 
 
-## DHCP
+
+----------
+Configure the ACL to work with our network
+```bash
+acl fortytwo_network src 10.0.0.0/24
+```
 
 
-## FW
+---------
+WHAT TO DO HERE???????
 
 
-## SQUID
 
+
+
+
+Finally, restart squid:
+```bash
+sudo systemctl restart squid.service
+```
