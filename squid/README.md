@@ -1,4 +1,4 @@
-# osys3030-doc
+# Squid
 Documentation for OSYS 3030
 
 ## The Server

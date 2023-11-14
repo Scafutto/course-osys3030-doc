@@ -11,7 +11,7 @@ To install isc-dhcp-server, simply run the command:
 sudo apt install isc-dhcp-server -y
 ```
 
-## Config
+## Configuration
 To start cofngiuring our DHCP service, let's first edit our config file.
 ```bash
 sudo nano /etc/dhcp/dhcpd.conf
