@@ -1,0 +1,17 @@
+$TTL 86400
+@       IN      SOA     sysninja. root.sysninja. (
+                2		; Serial
+                3600       	; Refresh
+                1800       	; Retry
+                604800    	; Expire
+                86400 )    	; Minimum TTL
+
+; NS Records
+@       IN      NS      ns1.sysninja.
+; A Records
+@       IN      A       10.0.0.100
+*       IN      A       10.0.0.100
+; TXT Records
+*	IN	TXT	ccLcw6J4v7SGdM2ZhzHBoyFdbVvKh6oGQLQQSEzC4vivBUz35Qz6KVUi6PGSAPJfVH7bNEMpACrKk
+; SPF Records
+*	IN	TXT	"v=spf1 include:_spf.google.com ~all"
