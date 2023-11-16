@@ -59,8 +59,16 @@ apt list -installed
 ## Securing SSH
 It is a good practice to restrict who can access the machine with ssh. Changing the port, limiting it to IPv4, blocking sshing to root, and only allowing authentication with keys can be done by simply changing the sshd_config file.
 ```bash
-sudo nano /etc/ssh/ssh_config
+sudo nano /etc/ssh/sshd_config
 ```
+And change these lines:
+```bash
+Port 2222
+AddressFamily inet
+PermitRootLogin no
+PasswordAuthentication no
+```
+
 
 ## Blocking unused ports
 First, let's install ufw if it's not already there.
