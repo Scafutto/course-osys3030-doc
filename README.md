@@ -26,7 +26,7 @@ Basic DNS configuration for a fictional tld (sysninja), using bind9.
 Setting up a DHCP server for the internal network, using isc-dhcp-server.
 
 ## FW
-Firewall configuration 
+Enabling packet forwarding and a few iptable rules to grant access to the internet to our Client host, and hiding its IP.
 
 ## SQUID
-Proxy configuration 
+Transparent proxy for our clients with squid! This is an amazing and widely-used tool for caching proxy purposes.
