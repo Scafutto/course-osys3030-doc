@@ -22,21 +22,28 @@ sudo ufw enable
 ```
 
 ## Packet Forwarding
-In this part, we will enabled packet forwarding. First, edit the ufw forward policy to `DEFAULT_FORWARD_POLICY="ACCEPT"`:
+In this part, we will enabled packet forwarding. First, edit the ufw forward policy on `/etc/default/ufw`:
 ```bash
-sudo nano /etc/default/ufw
+DEFAULT_FORWARD_POLICY="ACCEPT"
 ```
 
-After that, uncomment the ip_forward line from the sysctl.conf file `net/ipv4/ip_forward=1`. You may also want to change the ipv6 forward line.:
+After that, uncomment the ip_forward line from the `/etc/ufw/sysctl.conf` file. You may also want to change the ipv6 forward line.:
 ```bash
-sudo nano /etc/ufw/sysctl.conf
+net/ipv4/ip_forward=1
+net/ipv6/conf/default/forwarding=1
 ```
 
 ## Nat tables
-It is also necessary to edit the nat table rules, on the /`etc/ufw.before.rules` file.
+It is also necessary to edit the nat table rules, on the `/etc/ufw/before.rules` file.
 
 ```bash
-NAT TABLE RULES HERE
+# nat Table rules
+*nat
+:POSTROUTING ACCEPT [0:0]
+
+-A POSTROUTING -s 10.0.0.0/24 -o enp0s3 -j MASQUERADE
+
+COMMIT
 ```
 
 Enable the new settings:
@@ -44,7 +51,7 @@ Enable the new settings:
 sudo ufw disable && sudo ufw enable && sudo sysctl -p
 ```
 
-And issue this command:
+And issue this command, you may need to change the subnet and the output interface to match your server:
 ```bash
-sudo iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o INTERFACEHEREEEEEEEEEEEEEEEEEEEEEEEEEE -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o enp0s3 -j MASQUERADE
 ```
