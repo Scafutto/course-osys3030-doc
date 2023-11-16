@@ -5,9 +5,8 @@ Documentation for OSYS 3030
 This server was created for the sole purpose of this class. It only contains the packages described in this documentation, besides the ones that come with the fresh install. <br />
 
 **Interfaces** <br />
-xx <br />
-yy <br />
-zz <br />
+enp0s3 - Has access to the internet <br />
+enp0s8 - Internal network interface <br />
 
 **Specifications** <br />
 Operating System: Ubuntu 22.04 (Jammy) server <br />
